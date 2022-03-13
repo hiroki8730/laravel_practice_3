@@ -19,16 +19,47 @@ class HelloController extends Controller
 
     public function check (Request $request)
     {
-        return view('layouts.check');
+        $items = $request->all();
+        return view('layouts.check', ['items' => $items]);
     }
 
     public function send (Request $request)
     {
-        $this->validate($request, Person::$rules);
         $person = new Person;
-        $form = $request->all();
-        unset($form['_token']);
-        $person->fill($form)->save();
-        return redirect('/hello/thanks');
+        $items = $request->all();
+        unset($items['_token']);
+        $person->fill($items)->save();
+        return redirect('/thanks');
+    }
+
+    public function thanks ()
+    {
+        $items = Person::all();
+        return view('layouts.thanks',);
+    }
+
+    public function listView (Request $request)
+    {
+        $items = Person::all();
+        return view('layouts.list', ['items' => $items]);
+    }
+
+    public function delete (Request $request)
+    {
+        $items = Person::all();
+        return view('layouts.list', ['items' => $items]);
+        // $person = Person::find($request->id);
+    }
+
+    public function remove (Request $request)
+    {
+        $items = Person::all();
+        foreach ($items as $item) {
+            foreach ($item->all() as $person)
+            {
+                Person::find($person->all()[$request->id - 1])->delete();
+            } 
+        }
+        return redirect('thanks', ['items' => $items]);
     }
 }
