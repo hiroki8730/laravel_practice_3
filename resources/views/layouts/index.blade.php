@@ -155,7 +155,6 @@
 <body>
 <div class="Form">
     <h1>お問い合わせフォーム</h1>
-    <p>{{ $items}}</p>
     <form action="hello/check" method="post">
         {{ csrf_field() }}
         <div class="Form-Item">

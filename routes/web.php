@@ -18,4 +18,11 @@ Route::get('/', function () {
 Route::get('hello', 'HelloController@index')->name('hello');
 Route::post('hello/check', 'HelloController@check')->name('check');
 
-Route::get('hello/thanks', 'HelloController@send')->name('send');
+Route::post('hello/send', 'HelloController@send')->name('send');
+
+Route::get('thanks', 'HelloController@thanks')->name('thanks');
+
+Route::get('list', 'HelloController@listView');
+
+Route::get('hello/del', 'HelloController@delete')->name('delete');
+Route::post('hello/del', 'HelloController@remove')->name('remove');

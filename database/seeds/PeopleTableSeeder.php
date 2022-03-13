@@ -27,5 +27,29 @@ class PeopleTableSeeder extends Seeder
             'content' => '花屋さんってどの辺にありますか？',
         ];
         DB::table('people')->insert($param);
+
+        $param = [
+            'name' => 'tubasa',
+            'tel' => '080-3333-1133',
+            'mail' => 'tubasa@docomo.ne.jp',
+            'content' => '今日の晩ご飯何がいいと思いますか？',
+        ];
+        DB::table('people')->insert($param);
+
+        $param = [
+            'name' => 'kazuki',
+            'tel' => '080-3333-2222',
+            'mail' => 'kazuki@docomo.ne.jp',
+            'content' => 'スシローいかん？',
+        ];
+        DB::table('people')->insert($param);
+
+        $param = [
+            'name' => 'saki',
+            'tel' => '080-3333-2222',
+            'mail' => 'saki@docomo.ne.jp',
+            'content' => 'ジェルネイルの神になりたい',
+        ];
+        DB::table('people')->insert($param);
     }
 }
